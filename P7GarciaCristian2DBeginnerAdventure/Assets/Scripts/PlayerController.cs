@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     float damageCooldown;
     Vector2 move;
 
+    public InputAction talkAction;
+
     Animator animator;
     Vector2 moveDirection=new Vector2(1,0);
     public GameObject projectilePrefab;
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour
         MoveAction.Enable();
         rigidbody2d=GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        talkAction.Enable();
 
         currentHealth = maxHealth;
     }
@@ -58,8 +61,11 @@ public class PlayerController : MonoBehaviour
             
             Launch();
         }
-        
 
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            FindFriend();
+        }
     }
        
 
@@ -92,5 +98,13 @@ public class PlayerController : MonoBehaviour
 
 
         animator.SetTrigger("Launch");
+    }
+    void FindFriend()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, moveDirection, 1.5f, LayerMask.GetMask("NPC"));
+        if (hit.collider != null)
+        {
+            Debug.Log("Raycast has hit the object " + hit.collider.gameObject);
+        }
     }
 }
