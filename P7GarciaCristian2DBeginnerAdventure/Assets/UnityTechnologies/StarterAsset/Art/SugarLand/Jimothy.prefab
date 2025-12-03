@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4182780211599587608}
   - component: {fileID: 5605021476960073991}
   - component: {fileID: 7648673310602715263}
+  - component: {fileID: 1828228472313742730}
   m_Layer: 0
   m_Name: Jimothy
   m_TagString: Untagged
@@ -128,6 +129,80 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1828228472313742730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6982080714746102436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a760c4db36f9745a4d65d1491b60c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveAction:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 3bd841b6-9a3c-4f50-9891-8c4cf323ceb8
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: 6882f8f6-8d0b-41e4-a890-c16e8bc70e1b
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 2c12642a-4cab-486d-a100-c41d8773ed34
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 9345cf61-d4f6-4b81-945d-de0e99dbd1f9
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: left
+      m_Id: bae1ee4f-acdc-4ffa-a554-2b7c5822fdbb
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 9aedc648-1a66-4b47-b068-acad8c012e5d
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    m_Flags: 0
+  maxHealth: 5
+  timeInvincible: 2
+  talkAction:
+    m_Name: Talk
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 83008723-9cc1-4586-8c2d-d6b223b5f3dc
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  projectilePrefab: {fileID: 4115286197373212467, guid: af7994988253bd343aa9a877808834ca,
+    type: 3}
 --- !u!1 &7637132430103111467
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,6 +352,15 @@ MonoBehaviour:
     m_Flags: 0
   maxHealth: 5
   timeInvincible: 2
+  talkAction:
+    m_Name: Talk
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 664765b7-16e5-471f-8ff7-e2f5712adefb
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   projectilePrefab: {fileID: 4115286197373212467, guid: af7994988253bd343aa9a877808834ca,
     type: 3}
 --- !u!95 &7511927001607777969

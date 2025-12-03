@@ -33,11 +33,8 @@ public class Projectile : MonoBehaviour
         {
             enemy.Fix();
         }
+
         Destroy(gameObject);
     }
 
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        Destroy(gameObject);
-    }
 }
