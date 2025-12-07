@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public GameObject projectilePrefab;
 
     AudioSource audioSource;
+    public AudioClip throwSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -99,6 +100,7 @@ public class PlayerController : MonoBehaviour
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         projectile.Launch(moveDirection, 300);
         animator.SetTrigger("Launch");
+     
     }
     void FindFriend()
     {

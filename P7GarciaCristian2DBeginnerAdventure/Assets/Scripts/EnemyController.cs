@@ -12,18 +12,20 @@ public class EnemyController : MonoBehaviour
     int direction = 1;
     Animator animator;
     bool broken=true;
+    public ParticleSystem smokeEffect;
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         timer = changeTime;
         animator = GetComponent<Animator>();
+       smokeEffect.Play();
     }
 
     void Update()
     {
         timer -= Time.deltaTime;
-        if (timer > 0)
+        if (timer < 0)
         {
             direction = -direction;
             timer = changeTime;
@@ -40,13 +42,13 @@ public class EnemyController : MonoBehaviour
         Vector2 position = rigidbody2d.position;
         if (vertical)
         {
-            position.y = position.y + speed * Time.deltaTime;
+            position.y = position.y += speed *direction* Time.deltaTime;
             animator.SetFloat("Move X", 0);
             animator.SetFloat("Move Y", direction);
         }
         else
         {
-            position.x=position.x + speed * Time.deltaTime;
+            position.x=position.x += speed * direction * Time.deltaTime;
             animator.SetFloat("Move X", direction);
             animator.SetFloat("Move Y", 0);
         }
@@ -66,7 +68,12 @@ public class EnemyController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        Projectile projectile = collision.gameObject.GetComponent<Projectile>();
+
+        if (projectile != null)
+        {
+            animator.SetTrigger("Fixed");
+        }
     }
 
     public void Fix()
@@ -74,5 +81,6 @@ public class EnemyController : MonoBehaviour
         broken = false;
         GetComponent<Rigidbody2D>().simulated = false;
         animator.SetTrigger("Fixed");
+        smokeEffect.Stop();
     }
 }
